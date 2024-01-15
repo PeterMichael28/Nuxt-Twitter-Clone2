@@ -12,7 +12,7 @@
         </div>
 
 
-        <div class="mt-2 space-y-3">
+        <div class="mt-2 space-y-2">
 
 <SidebarLeftTab active>
     <template v-slot:icon>
@@ -90,13 +90,13 @@
     </template>
 </SidebarLeftTab>
 
-<div class="hidden xl:block">
+<!-- <div class="hidden xl:block">
     <UIButton liquid size="lg" @on-click="emits('onTweet')">
         <span class="font-bold">
             Tweet
         </span>
     </UIButton>
-</div>
+</div> -->
 
 <!-- <div class="block xl:hidden">
     <UIButton @on-click="emits('onTweet')">

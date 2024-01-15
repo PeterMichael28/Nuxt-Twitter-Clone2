@@ -21,9 +21,18 @@
 
 
       <!-- content -->
-
+      <main class="col-span-12 md:col-span-8 lg:col-span-6 bg-red-400">
+        ooo
+      </main>
 
       <!-- right sidebar -->
+
+      <!-- Right Sidebar -->
+      <div class="hidden col-span-12 md:block lg:col-span-4 md:col-span-3">
+          <div class="sticky top-0">
+              <SidebarRight />
+          </div>
+     </div>
     </div>
 
    </div>
