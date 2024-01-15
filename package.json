@@ -12,11 +12,13 @@
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.10.4",
     "nuxt": "^3.9.1",
+    "prisma": "^5.8.0",
     "vue": "^3.4.10",
     "vue-router": "^4.2.5"
   },
   "dependencies": {
     "@heroicons/vue": "^1.0.6",
+    "@prisma/client": "^5.8.0",
     "nuxt-icon": "^0.6.8"
   }
 }
