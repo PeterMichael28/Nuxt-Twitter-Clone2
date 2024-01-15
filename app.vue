@@ -21,8 +21,8 @@
 
 
       <!-- content -->
-      <main class="col-span-12 md:col-span-8 lg:col-span-6 bg-dim-200">
-        ooo
+      <main class="col-span-12 md:col-span-8 lg:col-span-6">
+        <NuxtPage />
       </main>
 
       <!-- right sidebar -->

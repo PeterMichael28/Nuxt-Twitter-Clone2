@@ -16,7 +16,7 @@
         <!-- Preview Card : What's happening -->
         <SidebarRightPreviewCard title="What's happening">
 
-<SidebarRightPreviewCardItem v-for="whatsHappening in whatsHappeningItems">
+<SidebarRightPreviewCardItem v-for="whatsHappening in whatsHappeningItems" >
     <div>
         <h2 class="font-bold text-gray-800 text-md dark:text-white">{{ whatsHappening.title }}</h2>
 
