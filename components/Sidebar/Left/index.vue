@@ -90,21 +90,22 @@
     </template>
 </SidebarLeftTab>
 
-<!-- <div class="hidden xl:block">
-    <UIButton liquid size="lg" @on-click="emits('onTweet')">
+<div class="hidden xl:block">
+    <UIButton liquid size="lg">
         <span class="font-bold">
             Tweet
         </span>
     </UIButton>
-</div> -->
+</div>
 
-<!-- <div class="block xl:hidden">
-    <UIButton @on-click="emits('onTweet')">
+<div class="block xl:hidden">
+    <UIButton>
+    <!-- <UIButton @on-click="emits('onTweet')"> -->
         <div class="w-6 h-6 font-bold">
             <PencilIcon />
         </div>
     </UIButton>
-</div> -->
+</div>
 
         </div>
     </div>
