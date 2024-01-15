@@ -90,7 +90,7 @@
     </template>
 </SidebarLeftTab>
 
-<div class="hidden xl:block">
+<div class="hidden xl:block mt-10">
     <UIButton liquid size="lg">
         <span class="font-bold">
             Tweet
