@@ -53,7 +53,12 @@ const darkMoke = ref(false)
 
 
 const user = useAuthUser();
+
+
 onBeforeMount(() => {
     initAuth()
 })
+
+
+
 </script>
