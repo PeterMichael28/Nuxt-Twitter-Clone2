@@ -60,5 +60,6 @@ export default defineEventHandler( async ( event ) => {
         access_token: accessToken, user: userTransformer(user)
     }
 
+    
 } );
 
