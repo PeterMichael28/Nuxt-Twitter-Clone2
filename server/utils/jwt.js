@@ -1,37 +1,38 @@
 import jwt from "jsonwebtoken"
+import { jwtAccessSecret, jwtRefreshSecret } from "./util";
 
 
 const generateAccessToken = (user) => {
-    const config = useRuntimeConfig()
+    
 
-    return jwt.sign({ userId: user.id }, config.jwtAccessSecret, {
+    return jwt.sign({ userId: user.id }, jwtAccessSecret, {
         expiresIn: '10m'
     })
 }
 
 const generateRefreshToken = (user) => {
-    const config = useRuntimeConfig()
+    
 
-    return jwt.sign({ userId: user.id }, config.jwtRefreshSecret, {
+    return jwt.sign({ userId: user.id }, jwtRefreshSecret, {
         expiresIn: '4h'
     })
 }
 
 export const decodeRefreshToken = (token) => {
-    const config = useRuntimeConfig()
+    
 
     try {
-        return jwt.verify(token, config.jwtRefreshSecret)
+        return jwt.verify(token, jwtRefreshSecret)
     } catch (error) {
         return null
     }
 }
 
 export const decodeAccessToken = (token) => {
-    const config = useRuntimeConfig()
+    
 
     try {
-        return jwt.verify(token, config.jwtAccessSecret)
+        return jwt.verify(token, jwtAccessSecret)
     } catch (error) {
         return null
     }

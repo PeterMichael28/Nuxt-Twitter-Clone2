@@ -1,28 +1,26 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { defineNuxtConfig } from 'nuxt/config'
+
+
 export default defineNuxtConfig({
-  modules: [
-    'nuxt-icon',
-    '@nuxtjs/tailwindcss'
-  ],
-  
-  build: {
-    transpile: ['@heroicons/vue']
-},
+ modules: ['nuxt-icon', '@nuxtjs/tailwindcss'],
 
-runtimeConfig: {
-    jwtAccessSecret: process.env.JWT_ACCESS_TOKEN_SECRET,
-    jwtRefreshSecret: process.env.JWT_REFRESH_TOKEN_SECRET,
-
-    // Cloudinary
-    cloudinaryCloudName: process.env.CLOUDINARY_CLOUD_NAME,
-    cloudinaryApiKey: process.env.CLOUDINARY_API_KEY,
-    cloudinaryApiSecret: process.env.CLOUDINARY_API_SECRET,
+ build: {
+  transpile: ['@heroicons/vue'],
+ },
+ 
+ runtimeConfig: {
+  public: {
+    YOUR_VARIABLE: 'Hello'
+  }
 },
-  vite: {
-    server: {
-      fs: {
-        allow: ['..', '/node_modules/nuxt/dist/app/entry.js'],
-      },
-    },
+ 
+ vite: {
+  server: {
+   fs: {
+    allow: ['..', '/node_modules/nuxt/dist/app/entry.js'],
+   },
   },
-})
+ },
+});
+
