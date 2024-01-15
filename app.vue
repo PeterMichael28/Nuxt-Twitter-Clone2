@@ -4,6 +4,8 @@
 
     <div class="bg-white dark:bg-dim-900">
 
+      <LoadingPage v-if="isAuthLoading" />
+
     
    <div v-if='user' class="min-h-full">
 
@@ -51,7 +53,7 @@ const { useAuthUser, initAuth, useAuthLoading, logout } = useAuth()
 const darkMoke = ref(false)
 
 
-
+const isAuthLoading = useAuthLoading()
 const user = useAuthUser();
 
 
