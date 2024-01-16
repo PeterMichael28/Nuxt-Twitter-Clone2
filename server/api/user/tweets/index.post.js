@@ -55,7 +55,8 @@ export default defineEventHandler(async (event) => {
     return {
         tweet: tweetTransformer(tweet)
     }
-})
+} )
+
 
 
 
