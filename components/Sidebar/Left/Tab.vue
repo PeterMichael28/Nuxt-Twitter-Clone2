@@ -1,5 +1,5 @@
 <template>
-    <NuxtLink to="#"
+    <NuxtLink :to="active ? '/' : '#'"
         class="flex items-center py-3 px-4 text-black rounded-full w-min hover:bg-gray-200 dark:hover:bg-dim-200 dark:text-white"
         :class="defaultTransition">
 
@@ -24,6 +24,7 @@ const props = defineProps({
 })
 
 const textClasses = computed(() => props.active ? 'font-semibold' : 'font-normal')
+
 
 
 </script>

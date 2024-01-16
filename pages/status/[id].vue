@@ -20,13 +20,11 @@ const { getTweetById } = useTweets()
 const { useAuthUser } = useAuth()
 const user = useAuthUser()
 const route = useRouter()
-const id = route.params.id
-watch(() => route.fullPath, () => getTweet())
+const id = route?.currentRoute?._value?.params?.id
+const path = route?.currentRoute?._value?.fullPath
+watch(() => path, () => getTweet())
 
-console.log('res',  route.params.id)
-// function getTweetIdFromRoute() {
-//     return route.params.id
-// }
+
 
 async function getTweet() {
     loading.value = true

@@ -23,7 +23,7 @@ export default defineEventHandler(async (event) => {
     const { fields, files } = response
     // console.log({ fields, files });
 
-    const userId = event.context?.auth?.user?.id
+    const userId = event.context?.auth?.user?.id;
 
     const tweetData = {
      text: fields.text[0],
@@ -33,23 +33,27 @@ export default defineEventHandler(async (event) => {
     const replyTo = fields.replyTo[0];
 
     if (replyTo && replyTo !== 'null' && replyTo !== 'undefined') {
-        tweetData.replyToId = replyTo
+     tweetData.replyToId = replyTo;
     }
 
-    const tweet = await createTweet(tweetData)
+    const tweet = await createTweet(tweetData);
 
     const filePromises = Object.keys(files).map(async (key) => {
-        const file = files[key]
+     const file = files[key];
+     //  console.log(file[0].filepath);
 
-        const cloudinaryResource = await uploadToCloudinary(file.filepath)
+     const cloudinaryResource = await uploadToCloudinary(
+      file[0]?.filepath,
+     );
+     //   file[0].PersistentFile?.filepath,
 
-        return createMediaFile({
-            url: cloudinaryResource.secure_url,
-            providerPublicId: cloudinaryResource.public_id,
-            userId: userId,
-            tweetId: tweet.id
-        })
-    })
+     return createMediaFile({
+      url: cloudinaryResource.secure_url,
+      providerPublicId: cloudinaryResource.public_id,
+      userId: userId,
+      tweetId: tweet.id,
+     });
+    });
 
     await Promise.all(filePromises)
 
