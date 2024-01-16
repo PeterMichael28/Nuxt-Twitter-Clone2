@@ -17,11 +17,14 @@
                 Login
             </UIButton>
 
+            <p class="text-xs text-gray-500 dark:text-white/40 ">Don't have an account yet? <span class="text-lg font-semibold hover:underline transition-all duration-300" @click="handleClick">Register</span></p>
+
 
         </div>
     </div>
 </template>
 <script setup>
+const emits = defineEmits(['onChangePage'])
 
 const data = reactive({
     username: '',
@@ -46,7 +49,9 @@ async function handleLogin() {
 
 }
 
-
+function handleClick() {
+    emits('onChangePage', true)
+}
 const isButtonDisabled = computed(() => {
     return (!data.username || !data.password) || data.loading
 })
