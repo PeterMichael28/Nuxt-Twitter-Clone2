@@ -16,6 +16,7 @@ export default defineEventHandler(async (event) => {
         }))
     }
 
+    
     const rToken = await getRefreshTokenByToken(refreshToken)
 
     if (!rToken) {

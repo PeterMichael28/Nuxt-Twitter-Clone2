@@ -1,6 +1,8 @@
 import { prisma } from ".";
 import bcrypt from "bcrypt"
 
+
+// create a new user
 export const createUser = (userData) => {
     const finalUserData = {
         ...userData,
@@ -13,6 +15,7 @@ export const createUser = (userData) => {
 }
 
 
+// get a user details by its username
 export const getUserByUsername = (username) => {
     return prisma.user.findUnique({
         where: {
@@ -21,6 +24,8 @@ export const getUserByUsername = (username) => {
     })
 }
 
+
+// get a user details by the user id
 export const getUserById = (userId) => {
     return prisma.user.findUnique({
         where: {
