@@ -1,20 +1,20 @@
 <template>
-    <MainSection title="Home" :loading="loading">
+    <div>
+        <MainSection title="Home" :loading="loading">
 
-        <Head>
+            <Head>
                 <Title>Home / Twitter</Title>
-        </Head>
+            </Head>
 
-        <div class="border-b" :class="twitterBorderColor">
+            <div class="border-b" :class="twitterBorderColor">
                 <TweetForm :user="user" @on-success="handleFormSuccess" />
             </div>
 
-            
+            <TweetListFeed :tweets="homeTweets" />
 
-        
-    </MainSection>
+        </MainSection>
+    </div>
 </template>
-
 <script setup>
 const { twitterBorderColor } = useTailwindConfig()
 const { getTweets } = useTweets()
@@ -39,11 +39,7 @@ onBeforeMount(async () => {
 })
 
 function handleFormSuccess(tweet) {
-    navigateTo({
-        path: `/status/${tweet.id}`
-    })
+    navigateTo(`/status/${tweet.id}`)
 }
 
-
 </script>
-

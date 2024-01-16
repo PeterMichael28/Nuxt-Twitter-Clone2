@@ -68,6 +68,7 @@ export default () => {
     const getTweetById = (tweetId) => {
         return new Promise(async (resolve, reject) => {
             try {
+                console.log({tweetId})
                 const response = await useFetchApi(`/api/tweets/${tweetId}`)
 
                 resolve(response)

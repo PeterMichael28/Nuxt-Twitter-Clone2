@@ -32,7 +32,7 @@ export const decodeAccessToken = (token) => {
     // console.log({token})
 
     try {
-        console.log(jwt.verify(token, jwtAccessSecret))
+        // console.log(jwt.verify(token, jwtAccessSecret))
         return jwt.verify(token, jwtAccessSecret)
     } catch (error) {
         return null

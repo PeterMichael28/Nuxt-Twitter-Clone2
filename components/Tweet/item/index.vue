@@ -46,9 +46,9 @@ const props = defineProps({
     }
 })
 
-const tweetBodyWrapper = computed(() => props.compact ? 'ml-16' : 'ml-2 mt-4')
+const tweetBodyWrapper = computed(() => props.compact ? 'ml-16' : 'ml-2 mt-1')
 
-const textSize = computed(() => props.compact ? 'text-base' : 'text-2xl')
+const textSize = computed(() => props.compact ? 'text-base' : 'text-xl')
 
 function handleCommentClick() {
     emitter.$emit('replyTweet', props.tweet)

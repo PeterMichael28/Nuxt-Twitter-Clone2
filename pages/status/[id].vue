@@ -19,18 +19,19 @@ const tweet = ref(null)
 const { getTweetById } = useTweets()
 const { useAuthUser } = useAuth()
 const user = useAuthUser()
+const route = useRouter()
+const id = route.params.id
+watch(() => route.fullPath, () => getTweet())
 
-
-watch(() => useRoute().fullPath, () => getTweet())
-
-function getTweetIdFromRoute() {
-    return useRoute().params.id
-}
+console.log('res',  route.params.id)
+// function getTweetIdFromRoute() {
+//     return route.params.id
+// }
 
 async function getTweet() {
     loading.value = true
     try {
-        const response = await getTweetById(getTweetIdFromRoute())
+        const response = await getTweetById(id)
 
         tweet.value = response.tweet
     } catch (error) {
