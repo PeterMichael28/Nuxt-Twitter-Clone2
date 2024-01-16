@@ -7,13 +7,14 @@
         <div v-else>
             <TweetItem :tweet="props.replyTo" v-if="props.replyTo && props.showReply" hideActions />
             <TweetFormInput :placeholder="props.placeholder" :user="props.user" @onSubmit="handleFormSubmit" />
-            
+
         </div>
 
     </div>
 </template>
 <script setup>
-const emits = defineEmits(['onSuccess'])
+const emits = defineEmits( [ 'onSuccess' ] )
+
 const loading = ref(false)
 const { postTweet } = useTweets()
 
