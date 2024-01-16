@@ -29,9 +29,10 @@ export const decodeRefreshToken = (token) => {
 }
 
 export const decodeAccessToken = (token) => {
-    
+    // console.log({token})
 
     try {
+        console.log(jwt.verify(token, jwtAccessSecret))
         return jwt.verify(token, jwtAccessSecret)
     } catch (error) {
         return null
@@ -50,7 +51,7 @@ export const generateTokens = (user) => {
 }
 
 export const sendRefreshToken = (event, token) => {
-    setCookie(Event, 'refresh_token', token, {
+    setCookie(event, 'refresh_token', token, {
      httpOnly: true,
      sameSite: true,
     });

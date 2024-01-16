@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col h-screen">
+    <div class="flex flex-col min-h-screen overflow-y-scroll px-2">
 
 
         <div class="p-2 my-2 rounded-full hover:bg-blue-50 w-min dark:hover:bg-white/20" :class="defaultTransition">
@@ -89,7 +89,7 @@
             </SidebarLeftTab>
 
             <div class="hidden xl:block">
-                <UIButton liquid size="lg" @on-click="emits('onTweet')">
+                <UIButton liquid size="sm" @on-click="emits('onTweet')">
                     <span class="font-bold">
                         Tweet
                     </span>
@@ -98,7 +98,7 @@
 
             <div class="block xl:hidden">
                 <UIButton @on-click="emits('onTweet')">
-                    <div class="w-6 h-6 font-bold">
+                    <div class="size-6 font-bold">
                         <PencilIcon />
                     </div>
                 </UIButton>
@@ -106,16 +106,16 @@
 
         </div>
 
-        <div class="flex flex-row items-center justify-center px-2 py-2 mx-auto mt-auto mb-5 rounded-full cursor-pointer w-14 xl:w-full hover:bg-gray-100 dark:hover:bg-dim-800"
+        <div class="flex flex-row items-center justify-center px-2 py-2 mx-auto mt-16 mb-5 rounded-full cursor-pointer w-14 lg:w-full hover:bg-gray-100 dark:hover:bg-dim-800"
             :class="defaultTransition" @click="emits('onLogout')">
 
             <div class="flex flex-row">
-                <img :src="props.user.profileImage" class="w-10 h-10 rounded-full">
+                <img :src="props.user.profileImage" class="size-8 rounded-full">
                 <div class="flex-col hidden ml-2 xl:block">
                     <h1 class="text-sm font-bold text-gray-800 dark:text-white">
                         {{ user.name }}
                     </h1>
-                    <p class="text-sm text-gray-400">
+                    <p class="text-xs text-gray-400">
                         {{ user.handle }}
                     </p>
                 </div>

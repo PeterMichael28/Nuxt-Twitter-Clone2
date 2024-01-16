@@ -21,6 +21,7 @@ export default defineEventHandler(async (event) => {
     })
 
     const { fields, files } = response
+    console.log({ fields, files });
 
     const userId = event.context?.auth?.user?.id
 

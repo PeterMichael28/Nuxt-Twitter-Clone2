@@ -6,7 +6,7 @@ import { getUserById } from "~/server/db/users";
 
 export default defineEventHandler(async (event) => {
  const refreshToken = getCookie(event, 'refresh_token');
-
+  
  // const refreshToken = cookies.refresh_token
 
  if (!refreshToken) {
