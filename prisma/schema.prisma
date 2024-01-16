@@ -55,11 +55,13 @@ model Tweet {
   author   User   @relation(fields: [authorId], references: [id])
   authorId String @db.ObjectId
 
+
+// replying to
   replyToId String? @db.ObjectId
   replyTo   Tweet?  @relation("replies", fields: [replyToId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   replies   Tweet[] @relation("replies")
 
-  // MediaFiles
+  // cloduinary MediaFiles
   mediaFiles MediaFile[]
 }
 
