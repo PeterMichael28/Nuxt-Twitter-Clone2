@@ -50,8 +50,8 @@ export const generateTokens = (user) => {
 }
 
 export const sendRefreshToken = (event, token) => {
-    setCookie(event.res, "refresh_token", token, {
-        httpOnly: true,
-        sameSite: true
-    })
+    setCookie(Event, 'refresh_token', token, {
+     httpOnly: true,
+     sameSite: true,
+    });
 } 

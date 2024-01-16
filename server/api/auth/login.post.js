@@ -8,7 +8,7 @@ import { createRefreshToken } from "~/server/db/refreshTokens";
 // login api
 export default defineEventHandler( async ( event ) => {
 
-    const body = await useBody(event)
+    const body = await readBody(event)
 
     const { username, password } = body
 

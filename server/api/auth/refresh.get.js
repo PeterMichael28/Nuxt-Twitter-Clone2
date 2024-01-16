@@ -5,40 +5,47 @@ import { getUserById } from "~/server/db/users";
 
 
 export default defineEventHandler(async (event) => {
-    const cookies = getCookie( event, 'refresh_token' );
+ const refreshToken = getCookie(event, 'refresh_token');
 
-    const refreshToken = cookies.refresh_token
+ // const refreshToken = cookies.refresh_token
 
-    if (!refreshToken) {
-        return sendError(event, createError({
-            statusCode: 401,
-            statusMessage: 'Refresh token is invalid'
-        }))
-    }
+ if (!refreshToken) {
+  return sendError(
+   event,
+   createError({
+    statusCode: 401,
+    statusMessage: 'Refresh token is invalid',
+   }),
+  );
+ }
 
-    
-    const rToken = await getRefreshTokenByToken(refreshToken)
+ const rToken = await getRefreshTokenByToken(refreshToken);
 
-    if (!rToken) {
-        return sendError(event, createError({
-            statusCode: 401,
-            statusMessage: 'Refresh token is invalid'
-        }))
-    }
-    
-    const token = decodeRefreshToken(refreshToken)
+ if (!rToken) {
+  return sendError(
+   event,
+   createError({
+    statusCode: 401,
+    statusMessage: 'Refresh token is invalid',
+   }),
+  );
+ }
 
-    try {
-        const user = await getUserById(token.userId)
+ const token = decodeRefreshToken(refreshToken);
 
-        const { accessToken } = generateTokens(user)
+ try {
+  const user = await getUserById(token.userId);
 
-        return { access_token: accessToken }
+  const { accessToken } = generateTokens(user);
 
-    } catch (error) {
-        return sendError(event, createError({
-            statusCode: 500,
-            statusMessage: 'Something went wrong'
-        }))
-    }
+  return { access_token: accessToken };
+ } catch (error) {
+  return sendError(
+   event,
+   createError({
+    statusCode: 500,
+    statusMessage: 'Something went wrong',
+   }),
+  );
+ }
 });

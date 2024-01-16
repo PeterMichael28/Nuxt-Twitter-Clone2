@@ -1,7 +1,7 @@
 <template>
     <div class="w-full">
         <div class="flex justify-center">
-            <div class="w-10 h-10">
+            <div class="size-10">
                 <LogoTwitter />
             </div>
         </div>
@@ -17,7 +17,7 @@
                 Login
             </UIButton>
 
-            <p class="text-xs text-gray-500 dark:text-white/40 ">Don't have an account yet? <span class="text-lg font-semibold hover:underline transition-all duration-300" @click="handleClick">Register</span></p>
+            <p class="text-xs text-gray-500 dark:text-white/40 ">Don't have an account yet? <span class="text-lg font-semibold hover:underline transition-all duration-300 cursor-pointer" @click="handleClick">Register</span></p>
 
 
         </div>

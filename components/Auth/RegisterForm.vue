@@ -1,12 +1,12 @@
 <template>
     <div class="w-full">
         <div class="flex justify-center">
-            <div class="w-10 h-10">
+            <div class="size-10">
                 <LogoTwitter />
             </div>
         </div>
 
-        <div class="pt-5 space-y-6">
+        <div class="pt-5 space-y-4">
 
             <UIInput v-model="data.name" label="Full Name" placeholder="your full name" />
             <UIInput v-model="data.username" label="Username" placeholder="@username" />
@@ -20,7 +20,7 @@
                 Register
             </UIButton>
 
-            <p class="text-xs text-gray-500 dark:text-white/40 ">Already have an account? <span class="text-lg font-semibold hover:underline transition-all duration-300" @click="handleClick">Login</span></p>
+            <p class="text-xs text-gray-500 dark:text-white/40 ">Already have an account? <span class="text-lg font-semibold hover:underline transition-all duration-300 cursor-pointer" @click="handleClick">Login</span></p>
 
 
         </div>
@@ -51,6 +51,8 @@ async function handleRegister() {
             repeatPassword: data.repeatPassword,
             name: data.name
         })
+
+        emits('onChangePage', false)
     } catch (error) {
         console.log(error)
     } finally {
